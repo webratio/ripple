@@ -20,6 +20,7 @@
  */
 var childProcess = require('child_process'),
     fs = require('fs'),
+    os = require("os"),
     path = require('path'),
     _c = require('./../conf'),
     PKG_BUILD_DIR = path.join(_c.DEPLOY, "hosted");
@@ -27,9 +28,20 @@ var childProcess = require('child_process'),
 module.exports = function (src, baton) {
     baton.take();
 
-    var copy = 'mkdir ' + PKG_BUILD_DIR + " &&" +
+    function toWinSep(str) {
+        return str.replace(/\//g, '\\');
+    }
+
+    var copy;
+    if (os.platform() === 'win32') {
+        copy = 'mkdir ' + toWinSep(PKG_BUILD_DIR) + " &&" +
+               'xcopy /e ' + toWinSep(_c.ASSETS) + toWinSep("client/images ") + toWinSep(PKG_BUILD_DIR) + " &&" +
+               'xcopy /e ' + toWinSep(_c.ASSETS) + toWinSep("client/themes ") + toWinSep(PKG_BUILD_DIR);
+    } else {
+        copy = 'mkdir ' + PKG_BUILD_DIR + " &&" +
                'cp -r ' + _c.ASSETS + "client/images " + PKG_BUILD_DIR + " &&" +
                'cp -r ' + _c.ASSETS + "client/themes " + PKG_BUILD_DIR;
+    }
 
     childProcess.exec(copy, function (error/*, stdout, stderr*/) {
         if (error) { throw new Error(error); }
