@@ -20,32 +20,28 @@
 -->
 <section id="push-container" class="ui-box ui-state-default ui-corner-all">
     <section class="h2 info-header">
-        <section class="collapse-handle">Push</section>
+        <section class="collapse-handle">Notifications</section>
         <section class="drag-handle ui-state-default ui-corner-all ui-state-hover">
             <span class="ui-icon ui-icon-arrow-4"></span>
         </section>
     </section>
-
     <section id="push" class="info ui-widget-content ui-corner-all" style="display: none;">
         <section class="push-info">
             <table id="push-fields" class="panel-table">
                 <tr>
-                    <td><label class="ui-text-label">Port</label></td>
-                    <td><select id="port-select" class="ui-state-default ui-corner-all"></select></td>
+                    <td><label class="ui-text-label">Notifications</label></td>
+                    <td><select id="notifications-select" class="ui-state-default ui-corner-all" ><option value="default">choose...</option></select></td>
                 </tr>
             </table>
-
             <table class="panel-table">
                 <tr>
-                    <td colspan="2">
-                        <textarea class="ui-state-default ui-corner-all" id="push-text" rows="4" style="width: 90%;"></textarea>
+                    <td id="push-parameters-input" colspan="2">
                     </td>
                 </tr>
-
                 <tr>
                     <td colspan="2">
                         <button id="push-send" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-                            <span class="ui-button-text">Push</span>
+                            <span class="ui-button-text">Send</span>
                         </button>
                     </td>
                 </tr>
