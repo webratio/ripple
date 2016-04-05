@@ -1267,3 +1267,20 @@ fieldset {
 #options-menu-about {
     display: none
 }  
+#accelerometer-container {
+    display: none
+}
+#platforms-container {
+    display: none
+}
+#config-container {
+    display: none
+} 
+.logo {
+    background-size: 100%;
+    width: 240px;
+} 
+
+.beta {
+    display:none
+}  
