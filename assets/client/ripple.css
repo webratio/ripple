@@ -1284,3 +1284,18 @@ fieldset {
 .beta {
     display:none
 }  
+#platform-events-fire-resume {
+    display: none
+}  
+#platform-events-fire-online {
+    display: none
+}  
+#platform-events-fire {
+    display: none
+}  
+#platform-events-select {
+    display: none
+}  
+#platform-events-fire-back, #platform-events-fire-suspend, #platform-events-fire-resume, #platform-events-fire-online, #platform-events-fire-offline {
+    width: 90px
+} 

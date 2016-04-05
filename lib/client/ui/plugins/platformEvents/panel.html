@@ -20,19 +20,30 @@
 -->
 <section id="platform-events-container" class="ui-box ui-state-default ui-corner-all">
     <section class="h2 info-header">
-        <section class="collapse-handle">Events</section>
+        <section class="collapse-handle">Device Actions</section>
         <section class="drag-handle ui-state-default ui-corner-all ui-state-hover">
             <span class="ui-icon ui-icon-arrow-4"></span>
         </section>
     </section>
 
     <section id="platform-events-container" class="info ui-widget-content ui-corner-all" style="display: none;">
-        <p>Select the event that you want to fire.</p>
+        <p>Simulate a device action:</p>
         <select id="platform-events-select" class="ui-state-default ui-corner-all"></select>
         <select id="platform-events-args" class="ui-state-default ui-corner-all" style="display: none"></select>
-        <br />
-        <button id="platform-events-fire" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
-            <span class="ui-button-text">Fire Event</span>
-        </button>
+		<button id="platform-events-fire-back" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+			<span class="ui-button-text">Back</span>
+		</button>
+		<button id="platform-events-fire-suspend" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+			<span class="ui-button-text">Suspend</span>
+		</button>
+		<button id="platform-events-fire-resume" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+			<span class="ui-button-text">Resume</span>
+		</button>
+		<button id="platform-events-fire-offline" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+			<span class="ui-button-text">Offline</span>
+		</button>
+		<button id="platform-events-fire-online" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only">
+			<span class="ui-button-text">Online</span>
+		</button>
     </section>
 </section>
