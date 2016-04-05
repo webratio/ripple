@@ -1,16 +1,8 @@
 <div id="exec-dialog">
-    <p class="h1">
-        <span id="exec-service"></span>.<span id="exec-action"></span>
-    </p>
-    <p> We seem to be missing some stuff :( </p>
-    <p>
-    What is kinda cool though you can fill in the textarea to 
-    pass a json object to the callback you want to execute
-    </p>
-
-    <textarea id="exec-response" rows="10" cols="30" style="width:100%"></textarea>
-
-    <br/>
-    <button id="exec-success">Success!</button>
-    <button id="exec-fail">Fail!</button>
+    <p class="h1"><span id="exec-service"></span>.<span id="exec-action"></span></p>
+    <p> The above method is not supported by the emulator. </p>
+    <p>In order to simulate the execution of the requested action insert a JSON object in the textarea below and select the desired action. <br/>The callback function corresponding to the chosen action will be executed with the provided JSON object as argument.</p>
+    <textarea id="exec-response" rows="10" cols="30" style="width:100%"></textarea><br/>
+    <button id="exec-success">Execute Success Callback</button>
+    <button id="exec-fail">Execute Error Callback</button>
 </div>
