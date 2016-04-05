@@ -1264,3 +1264,6 @@ fieldset {
 	display: inline-block;
 	width: 31%;
 }
+#options-menu-about {
+    display: none
+}  
