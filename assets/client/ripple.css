@@ -1251,3 +1251,16 @@ fieldset {
     top: 0;
     left: 0;
 }
+#camera-window::-webkit-scrollbar {
+	width: 0;
+}
+
+#camera-result + section {
+	text-align: center;
+	margin-bottom: 6px;
+}
+
+#camera-result + section > .small-button {
+	display: inline-block;
+	width: 31%;
+}
