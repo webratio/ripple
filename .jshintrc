@@ -87,7 +87,9 @@
         "cordova": false,
         "ripple": false,
         "moment": true,
-        "accounting": true
+        "accounting": true,
+        "Promise": true,
+        "Event": true
     },
 
     "node" : true,
