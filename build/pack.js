@@ -22,7 +22,6 @@
 var child_process = require('child_process'),
     colors = require('colors'),
     Q = require('q'),
-    semver = require('semver'),
     lint = require('./lint'),
     build = require('./build'),
     test = require('./test');
@@ -162,18 +161,65 @@ function verifyTagName() {
     outputStep('Looking for most recent tag...');
     return exec('git tag --list').then(function (allTags) {
         tagName = allTags.split(/\s+/).reduce(function (currentBest, value) {
+            if (!currentBest) {
+                return value;
+            }
             var modifiedValue = value.replace(/^v/, '');
-            if (semver.valid(modifiedValue)) {
-                return !currentBest ? value : semver.gt(currentBest.replace(/^v/, ''), modifiedValue) ? currentBest : value;
+            if (compareVersions(modifiedValue, currentBest.replace(/^v/)) > 0) {
+                return modifiedValue;
             }
-            if (currentBest) {
-                return currentBest;
-            }
-            return null;
+            return currentBest;
         });
 
         console.log('- found: ' + tagName);
     });
+}
+
+function compareVersions(v1, v2) {
+    
+    /* Function for splitting version strings into parts */
+    function splitVersion(v) {
+        var parts = [];
+        if (v) {
+            var PARTS_RE = /([0-9]+)|([^\\.\\s0-9]+)/g, m;
+            while (!!(m = PARTS_RE.exec(String(v)))) {
+                if (m[1]) {
+                    parts.push(Number(m[1]));
+                } else {
+                    parts.push(m[2]);
+                }
+            }
+        }
+        return parts;
+    }
+    
+    /* Split the two versions */
+    var parts1 = splitVersion(v1);
+    var parts2 = splitVersion(v2);
+    
+    /* Iterate over parts and compare */
+    for ( var i = 0, len = Math.max(parts1.length, parts2.length); i < len; i++) {
+        var p1 = parts1[i];
+        var p2 = parts2[i];
+        
+        /* Normalize missing parts to 0 or empty string */
+        if (p1 === undefined) {
+            p1 = (typeof p2 === "number" ? 0 : "");
+        }
+        if (p2 === undefined) {
+            p2 = (typeof p1 === "number" ? 0 : "");
+        }
+        
+        /* Compare (always number-number or string-string) */
+        if (p1 > p2) {
+            return 1;
+        } else if (p1 < p2) {
+            return -1;
+        }
+    }
+    
+    /* Versions are equal */
+    return 0;
 }
 
 function checkoutTag() {
