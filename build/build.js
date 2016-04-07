@@ -18,38 +18,44 @@
  * under the License.
  *
  */
-var fs = require('fs'),
+var colors = require('colors'),
     jWorkflow = require('jWorkflow'),
+    Q = require('q'),
     quotes = require('./quotes'),
-    pack = require('./pack'),
+    pack = require('./pack-files'),
     clean = require('./clean'),
-    _c = require('./conf'),
     compress = require('./compress'),
     hosted = require('./targets/hosted');
 
-function _done(error) {
+colors.mode = "console";
+
+function _done(error, done) {
+    if (typeof error === "function") {
+        done = error;
+        error = null;
+    }
+
     if (error) {
-        process.stdout.write(fs.readFileSync(_c.THIRDPARTY + "fail.txt", "utf-8"));
-        process.stdout.write(error);
-        process.exit(1);
+        console.log("Build failed: ".red + error.toString().red);
+        (done || process.exit)(1);
     } else {
-        process.stdout.write(fs.readFileSync(_c.THIRDPARTY + "dredd.txt", "utf-8"));
+        console.log("Build succeeded.".green);
         quotes.random();
-        process.exit();
+        (done || process.exit)();
     }
 }
 
 function _handle(func) {
-    return function () {
+    return function (ext, opts, done) {
         try {
             func.apply(func, Array.prototype.slice.call(arguments));
         } catch (e) {
-            _done(e.message + "\n" + e.stack);
+            _done(e.message + "\n" + e.stack, done);
         }
     };
 }
 
-module.exports = _handle(function (ext, opts) {
+var build = module.exports = _handle(function (ext, opts, done) {
     opts = opts || {};
 
     var build = jWorkflow.order(clean)
@@ -61,6 +67,18 @@ module.exports = _handle(function (ext, opts) {
     }
 
     build.start(function () {
-        _done();
+        _done(done);
     });
 });
+
+module.exports.promise = function (ext, opts) {
+    var d = Q.defer();
+    build(ext, opts, function (code) {
+        if (code) {
+            d.reject(code);
+        } else {
+            d.resolve();
+        }
+    });
+    return d.promise;
+};

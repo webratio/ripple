@@ -18,26 +18,24 @@
  * under the License.
  *
  */
-var lint = require('./lint'),
+var colors = require('colors'),
+    lint = require('./lint'),
     build = require('./build'),
-    test = require('./test'),
-    fs = require('fs'),
-    _c = require('./conf'),
-    fail = fs.readFileSync(_c.THIRDPARTY + "fail.txt", "utf-8");
+    test = require('./test');
 
-function ok(code) {
-    if (code || code === 1) {
-        process.stdout.write(fail);
-        process.exit(1);
+colors.mode = "console";
+
+function handleError(code) {
+    console.log('Deploy failed.'.red);
+    if (typeof code !== 'number') {
+        console.log(code.stack || code);
+        code = 1;
     }
+    process.exit(code);
 }
 
 module.exports = function () {
-    test(null, function (code) {
-        ok(code, "red tests");
-        lint(function (code) {
-            ok(code);
-            build(null, {compress: true});
-        });
-    });
+    test.promise().then(lint.promise, handleError).then(function () {
+        build(null, {compress: true});
+    }, handleError);
 };

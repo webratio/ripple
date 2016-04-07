@@ -1,15 +1,49 @@
-# Apache Ripple(tm)
+<!--
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+-->
+
+# Ripple Emulator(tm)
 
 A browser based, platform agnostic mobile application development and testing tool.
- 
+
 ## Build Requirements
 
-* nodejs, npm
-* OSX or linux (windows is not currently supported for development)
+* Common
+  * `nodejs` (`v0.12.0` or higher)
+  * `npm` (`v2.5.1` or higher)
+  * `python` (`v2.7.3` recommended, `v3.x.x` is __not__ supported)
+    * [Windows download](http://www.python.org/download/releases/2.7.3#download)
+
+* OSX / Linux
+    * `make`
+    * A C/C++ compiler toolchain, e.g. GCC
+
+* Windows
+  * Visual Studio 2010
+    * The setup instructions can be found [here](https://github.com/brianmcd/contextify/wiki/Windows-Installation-Guide)
+  * [msysgit](http://msysgit.github.io/)
+    * Ripple uses [Bower](http://bower.io/) for js libraries managing. In order to use Bower on Windows, [msysgit](http://msysgit.github.io/) must be installed in a proper way - see Bower's [README.md](https://github.com/bower/bower#windows-users)
 
 ## Getting Started
 
-If you plan to dive into the source, be sure to check out the [HACKING](https://github.com/apache/incubator-ripple/blob/master/HACKING.md) file.
+If you plan to dive into the source, be sure to check out the [HACKING](https://github.com/ripple-emulator/ripple/blob/master/HACKING.md) file.
 
 To get started, you need to setup a few things, first- run (in the project root):
 
@@ -61,11 +95,7 @@ This will install a global script called `ripple`. To see usage, run:
 
 ## Contributing
 
-The `master` branch is the latest (stable) release. The `next` branch is where all development happens.
-
-If you like the project, and want to contribute code, please issue a pull request (on [GitHub](https://github.com/apache/incubator-ripple/pulls)) into the `next` branch.
-
-Note: You will need to submit an Apache [ICLA](http://www.apache.org/licenses/#clas) (Individual Contributor License Agreement) for your contribution to be accepted.
+If you like the project, and want to contribute code, please issue a pull request (on [GitHub](https://github.com/ripple-emulator/ripple/pulls)) into the `master` branch.
 
 ## Code Guidelines
 
@@ -75,4 +105,4 @@ Note: You will need to submit an Apache [ICLA](http://www.apache.org/licenses/#c
 
 ## Reference Material &amp; Community
 
-* [Project Site](http://ripple.incubator.apache.org)
+* [Project Site](https://github.com/ripple-emulator)

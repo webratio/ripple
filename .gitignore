@@ -14,3 +14,5 @@ services
 npm-debug.log
 test/assets/cov/results.html
 thirdparty/jasmine
+ripple-emulator-*.*
+apache-rat-0.10/

@@ -75,7 +75,7 @@ module.exports = {
         "../node_modules/moment/lang/sv.js",
         "../node_modules/moment/lang/tr.js",
         "../node_modules/moment/lang/zh-cn.js",
-        "../node_modules/moment/lang/zh-tw.js",    
+        "../node_modules/moment/lang/zh-tw.js",
         "../node_modules/accounting/accounting.js"
     ]
 };

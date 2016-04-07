@@ -204,49 +204,22 @@
 --> Kudos to third party awesomeness:
 
 -------------------------------------------------------
-This project contains code from the Apache Cordova project.
+* parseUri *
 
-http://incubator.apache.org/cordova/#contribute
-
-Licensed Under:
-
- Licensed to the Apache Software Foundation (ASF) under one
- or more contributor license agreements.  See the NOTICE file
- distributed with this work for additional information
- regarding copyright ownership.  The ASF licenses this file
- to you under the Apache License, Version 2.0 (the
- "License"); you may not use this file except in compliance
- with the License.  You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
- Unless required by applicable law or agreed to in writing,
- software distributed under the License is distributed on an
- "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
- KIND, either express or implied.  See the License for the
- specific language governing permissions and limitations
- under the License.
-
--------------------------------------------------------
-* jWorkflow *
-
-http://github.com/tinyhippos/jWorkflow/
-
-The MIT License
-http://www.opensource.org/licenses/mit-license.php
-Copyright (c) 2010 all contributors:
-Gord Tanner
+v1.2.2 (c) Steven Levithan <stevenlevithan.com>
+MIT License
 
 -------------------------------------------------------
 * jXHR.js (JSON-P XHR) *
- v0.1 (c) Kyle Simpson 
+ v0.1 (c) Kyle Simpson
  MIT License
 
 -------------------------------------------------------
 * UI.Accelerometer Control (panel plugin) *
 
 Licensed under the MIT license:
-  Copyright Train Hack 2010
+  Copyright (c) 2010 Epic Train Hack
+  Copyright (c) 2011 Research In Motion Limited
   Contributors: Wolfram Kriesing, Dan Silivestru, Brent Lintner
   http://www.opensource.org/licenses/mit-license.php
 
@@ -295,167 +268,156 @@ Dual licensed under the MIT and GPL licenses.
 
 -------------------------------------------------------
 * Wii Opera SDK - 3D Math Class v2.7.22 2008-12-14 *
-(c) 2007-2008 Daniel Gump. All Rights Reserved.                          
- http://wiioperasdk.com, http://hullbreachonline.com                      
- hullbreach@hullbreachonline.com                                          
-                                                                          
-* Wii Opera SDK - Drawing Class v2.6.16 2008-12-14 * 
+(c) 2007-2008 Daniel Gump. All Rights Reserved.
+ http://wiioperasdk.com, http://hullbreachonline.com
+ hullbreach@hullbreachonline.com
+
+* Wii Opera SDK - Drawing Class v2.6.16 2008-12-14 *
 (c) 2007-2008 Daniel Gump. All Rights Reserved
 http://wiioperasdk.com, http://hullbreachonline.com
 hullbreach@hullbreachonline.com
 
-  Wii is a trademark of Nintendo Co., Ltd.                                
-  Opera is a trademark of Opera, ASA.                                     
-  This software package is not associated with either company             
-  but was created to support users of both.  Its alternative name         
-  when supporting other products is the HULLBREACH SDK.                   
-                                                                          
-  Redistribution and use in source and binary forms, with or without      
-  modification, are permitted provided that the following conditions      
-  are met:                                                                
-    * Redistributions of source code must retain the above copyright      
-      notice, this list of conditions and the following disclaimer.       
-    * Redistributions in binary form must reproduce the above copyright   
-      notice, this list of conditions and the following disclaimer in     
-      the documentation and/or other materials provided with the          
-      distribution.                                                       
-    * Neither the names HULLBREACH ONLINE nor WII OPERA SDK nor the names 
-      of its contributors may be used to endorse or promote products      
-      derived from this software without specific prior written           
-      permission.                                                         
-    * If the explicit purpose of the software is not to support the       
-      Nintendo Wii or the Opera Web browser, then the names of such must  
-      not be used in any derived product. The name shall be the           
-      HULLBREACH SDK with a reference link to http://hullbreachonline.    
-                                                                          
-  THIS SOFTWARE IS PROVIDED BY Daniel Gump ''AS IS'' AND ANY EXPRESS OR   
-  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED          
-  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE  
-  DISCLAIMED. IN NO EVENT SHALL Daniel Gump BE LIABLE FOR ANY DIRECT,     
-  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES      
-  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR      
-  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)      
-  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,     
-  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING   
-  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE      
-  POSSIBILITY OF SUCH DAMAGE.                                             
-
--------------------------------------------------------
-  OpenLayers.js -- OpenLayers Map Viewer Library
-
-  Copyright 2005-2010 OpenLayers Contributors, released under the Clear BSD
-  license. Full license text below taken from http://svn.openlayers.org/trunk/openlayers/license.txt
-
-        Copyright 2005-2011 OpenLayers Contributors. All rights reserved. See
-        authors.txt for full list.
-         
-        Redistribution and use in source and binary forms, with or without modification,
-        are permitted provided that the following conditions are met:
-         
-        1. Redistributions of source code must retain the above copyright notice, this
-        list of conditions and the following disclaimer.
-         
-        2. Redistributions in binary form must reproduce the above copyright notice,
-        this list of conditions and the following disclaimer in the documentation and/or
-        other materials provided with the distribution.
-         
-        THIS SOFTWARE IS PROVIDED BY OPENLAYERS CONTRIBUTORS ``AS IS'' AND ANY EXPRESS
-        OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-        MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
-        SHALL COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
-        INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-        LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
-        PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
-        LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-        OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-        ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-         
-        The views and conclusions contained in the software and documentation are those
-        of the authors and should not be interpreted as representing official policies,
-        either expressed or implied, of OpenLayers Contributors.
-
-  Includes compressed code under the following licenses:
-
-  (For uncompressed versions of the code used please see the
-  OpenLayers SVN repository: <http://openlayers.org/>)
-
--------------------------------------------------------
-  Contains portions of Rico <http://openrico.org/>
- 
-  Copyright 2005 Sabre Airline Solutions  
-  
-  Licensed under the Apache License, Version 2.0 (the "License"); you
-  may not use this file except in compliance with the License. You
-  may obtain a copy of the License at the top of this file or a the following
-  link:
-  
-         http://www.apache.org/licenses/LICENSE-2.0  
-  
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
-  implied. See the License for the specific language governing
-  permissions and limitations under the License. 
-
--------------------------------------------------------
-  Contains XMLHttpRequest.js <http://code.google.com/p/xmlhttprequest/>
-  Copyright 2007 Sergey Ilinsky (http://www.ilinsky.com)
- 
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-  http://www.apache.org/licenses/LICENSE-2.0
-
--------------------------------------------------------
-  Contains portions of Gears <http://code.google.com/apis/gears/>
-
-  Copyright 2007, Google Inc.
+  Wii is a trademark of Nintendo Co., Ltd.
+  Opera is a trademark of Opera, ASA.
+  This software package is not associated with either company
+  but was created to support users of both.  Its alternative name
+  when supporting other products is the HULLBREACH SDK.
 
   Redistribution and use in source and binary forms, with or without
-  modification, are permitted provided that the following conditions are met:
+  modification, are permitted provided that the following conditions
+  are met:
+    * Redistributions of source code must retain the above copyright
+      notice, this list of conditions and the following disclaimer.
+    * Redistributions in binary form must reproduce the above copyright
+      notice, this list of conditions and the following disclaimer in
+      the documentation and/or other materials provided with the
+      distribution.
+    * Neither the names HULLBREACH ONLINE nor WII OPERA SDK nor the names
+      of its contributors may be used to endorse or promote products
+      derived from this software without specific prior written
+      permission.
+    * If the explicit purpose of the software is not to support the
+      Nintendo Wii or the Opera Web browser, then the names of such must
+      not be used in any derived product. The name shall be the
+      HULLBREACH SDK with a reference link to http://hullbreachonline.
 
-   1. Redistributions of source code must retain the above copyright notice,
-      this list of conditions and the following disclaimer.
-   2. Redistributions in binary form must reproduce the above copyright notice,
-      this list of conditions and the following disclaimer in the documentation
-      and/or other materials provided with the distribution.
-   3. Neither the name of Google Inc. nor the names of its contributors may be
-      used to endorse or promote products derived from this software without
-      specific prior written permission.
- 
-  THIS SOFTWARE IS PROVIDED BY THE AUTHOR ``AS IS'' AND ANY EXPRESS OR IMPLIED
-  WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-  MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
-  EVENT SHALL THE AUTHOR BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
-  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
-  PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS;
-  OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-  WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR
-  OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
-  ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- 
-  Sets up google.gears.*, which is *the only* supported way to access Gears.
-
-  Circumvent this file at your own risk!
- 
-  In the future, Gears may automatically define google.gears.* without this
-  file. Gears may use these objects to transparently fix bugs and compatibility
-  issues. Applications that use the code below will continue to work seamlessly
-  when that happens.
--------------------------------------------------------
-* accountingjs *
-
-http://josscrowcroft.github.com/accounting.js/
-
-The MIT License
-http://www.opensource.org/licenses/mit-license.php
-Copyright (c) 2011 Joss Crowcroft
+  THIS SOFTWARE IS PROVIDED BY Daniel Gump ''AS IS'' AND ANY EXPRESS OR
+  IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+  WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  DISCLAIMED. IN NO EVENT SHALL Daniel Gump BE LIABLE FOR ANY DIRECT,
+  INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+  (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION)
+  HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT,
+  STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING
+  IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  POSSIBILITY OF SUCH DAMAGE.
 
 -------------------------------------------------------
-* momentjs *
+* OpenLayers.js -- OpenLayers Map Viewer Library *
 
-https://github.com/timrwood/moment/
+Copyright (c) 2006-2012 by OpenLayers Contributors
+Published under the 2-clause BSD license.
 
-The MIT License
-http://www.opensource.org/licenses/mit-license.php
-Copyright (c) 2011-2012 Tim Wood
+Full license text below taken from https://github.com/openlayers/openlayers/blob/release-2.12/license.txt
+(On May 16, 2015 tag 'release-2.12' corresponded to commit 0412410be0ec43dc9a5c258b640a793fad41bd88).
+
+    Copyright 2005-2012 OpenLayers Contributors. All rights reserved. See
+    authors.txt for full list.
+
+    Redistribution and use in source and binary forms, with or without modification,
+    are permitted provided that the following conditions are met:
+
+     1. Redistributions of source code must retain the above copyright notice, this
+    list of conditions and the following disclaimer.
+
+     2. Redistributions in binary form must reproduce the above copyright notice,
+    this list of conditions and the following disclaimer in the documentation and/or
+    other materials provided with the distribution.
+
+    THIS SOFTWARE IS PROVIDED BY OPENLAYERS CONTRIBUTORS ``AS IS'' AND ANY EXPRESS
+    OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+    MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT
+    SHALL COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
+    INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+    LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+    PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+    LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
+    OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
+    ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+    The views and conclusions contained in the software and documentation are those
+    of the authors and should not be interpreted as representing official policies,
+    either expressed or implied, of OpenLayers Contributors.
+
+Includes compressed code under the following licenses:
+
+(For uncompressed versions of the code used please see the
+OpenLayers GitHub repository: <https://github.com/openlayers/openlayers/blob/release-2.12/>)
+
+    -------------------------------------------------------
+        Contains XMLHttpRequest.js <http://code.google.com/p/xmlhttprequest/>
+        Released under Apache License, Version 2.0 with the permission of the
+        author: https://github.com/openlayers/openlayers/blob/release-2.12/lib/OpenLayers/Request/XMLHttpRequest.js
+
+        XMLHttpRequest.js Copyright (C) 2010 Sergey Ilinsky (http://www.ilinsky.com)
+
+        Licensed under the Apache License, Version 2.0 (the "License");
+        you may not use this file except in compliance with the License.
+        You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+        See the License for the specific language governing permissions and
+        limitations under the License.
+    -------------------------------------------------------
+        OpenLayers.Util.pagePosition is based on Yahoo's getXY method, which is
+        Copyright (c) 2006, Yahoo! Inc.
+        All rights reserved.
+
+        Redistribution and use of this software in source and binary forms, with or
+        without modification, are permitted provided that the following conditions
+        are met:
+
+        * Redistributions of source code must retain the above copyright notice,
+          this list of conditions and the following disclaimer.
+
+        * Redistributions in binary form must reproduce the above copyright notice,
+          this list of conditions and the following disclaimer in the documentation
+          and/or other materials provided with the distribution.
+
+        * Neither the name of Yahoo! Inc. nor the names of its contributors may be
+          used to endorse or promote products derived from this software without
+          specific prior written permission of Yahoo! Inc.
+
+        THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+        AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+        IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+        ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE
+        LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+        CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+        SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+        INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+        CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+        ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+        POSSIBILITY OF SUCH DAMAGE.
+    -------------------------------------------------------
+        Contains portions of Rico <http://openrico.org/>
+
+        Copyright 2005 Sabre Airline Solutions
+
+        Licensed under the Apache License, Version 2.0 (the "License"); you
+        may not use this file except in compliance with the License. You
+        may obtain a copy of the License at
+
+         http://www.apache.org/licenses/LICENSE-2.0
+
+        Unless required by applicable law or agreed to in writing, software
+        distributed under the License is distributed on an "AS IS" BASIS,
+        WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or
+        implied. See the License for the specific language governing
+        permissions and limitations under the License.
+-------------------------------------------------------

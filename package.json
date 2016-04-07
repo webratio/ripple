@@ -1,19 +1,21 @@
 {
   "name": "ripple-emulator",
-  "version": "0.9.23",
+  "version": "0.9.35",
   "description": "A browser based html5 mobile application development and testing tool",
-  "homepage": "http://ripple.incubator.apache.org/",
+  "homepage": "https://github.com/ripple-emulator/ripple",
   "author": {
-    "name": "Apache Ripple Community",
-    "url": "http://ripple.incubator.apache.org/"
+    "name": "Ripple Emulator Community",
+    "url": "https://github.com/ripple-emulator"
   },
-  "licenses": [{
-    "type": "Apache-2.0",
-    "url": "http://www.apache.org/licenses/LICENSE-2.0"
-  }],
+  "licenses": [
+    {
+      "type": "Apache-2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0"
+    }
+  ],
   "repository": {
     "type": "git",
-    "url": "https://git-wip-us.apache.org/repos/asf/incubator-ripple.git"
+    "url": "https://github.com/ripple-emulator/ripple"
   },
   "keywords": [
     "cordova",
@@ -24,26 +26,31 @@
     "test",
     "emulator"
   ],
-  "bin": { "ripple": "./bin/ripple" },
+  "bin": {
+    "ripple": "./bin/ripple"
+  },
   "main": "./lib/index",
   "dependencies": {
-    "express": "3.1.0",
+    "accounting": "0.x.x",
+    "colors": "0.6.0-1",
     "connect-xcors": "0.5.2",
-    "request": "2.12.0",
-    "colors" : "0.6.0-1",
-    "moment" : "1.x.x",
-    "accounting" : "0.x.x",
-    "open": "0.0.3"
+    "express": "3.1.0",
+    "moment": "1.x.x",
+    "open": "0.0.3",
+    "request": "2.12.0"
   },
   "devDependencies": {
+    "bower": "1.3.12",
     "connect": "2.3.6",
-    "jsdom": "0.6.x",
+    "coverjs": "0.0.14",
     "cssmin": "0.3.1",
     "html-minifier": "0.4.5",
     "jWorkflow": "0.x.x",
-    "xmlhttprequest": "1.4.2",
-    "coverjs": "0.0.14",
-    "bower": "0.9.x"
+    "jsdom": "3.1.0",
+    "q": "^1.4.1",
+    "semver": "^4.3.1",
+    "shelljs": "^0.4.0",
+    "xmlhttprequest": "1.4.2"
   },
   "files": [
     "README.md",
@@ -57,7 +64,7 @@
     "bin"
   ],
   "engines": {
-    "node": ">= 0.8.0",
-    "npm":  ">= 1.1.0"
+    "node": ">= 0.12.0",
+    "npm": ">= 2.5.1"
   }
 }

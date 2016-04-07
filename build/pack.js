@@ -18,85 +18,241 @@
  * under the License.
  *
  */
-var fs = require('fs'),
-    utils = require('./utils'),
-    _path = require('path'),
-    _c = require('./conf');
 
-module.exports = function (opts) {
-    var lib = [],
-        devicesCSS = [],
-        overlays = [],
-        panels = [],
-        dialogs = [],
-        thirdparty = [],
-        slash = !!process.platform.match(/^win/) ? "\\":"/",
-        src = {
-            info: JSON.parse(fs.readFileSync(_c.PACKAGE_JSON, "utf-8")),
-            js: "",
-            overlays: "",
-            panels: "",
-            dialogs: "",
-            html: "",
-            skins: ""
-        };
+var child_process = require('child_process'),
+    colors = require('colors'),
+    Q = require('q'),
+    semver = require('semver'),
+    lint = require('./lint'),
+    build = require('./build'),
+    test = require('./test');
 
-    function matches(type) {
-        return function (path) {
-            return path.match(new RegExp(type + "$"));
-        };
+colors.mode = "console";
+
+var allowPending = false,
+    tagName = '',
+    noTest = false,
+    noLint = false,
+    noBuild = false,
+    noCompress = false;
+
+module.exports = function (options) {
+    if (options.length === 1 && options[0].toLowerCase() === "help") {
+        usage(true);
+        return;
     }
 
-    function compile(files, block) {
-        return files.reduce(function (buffer, file) {
-            var filestr = fs.readFileSync(file, "utf-8") + "\n";
-            return buffer + (block ? block(filestr, file) : filestr);
-        }, "");
-    }
-
-    if (!opts) { opts = {}; }
-
-    src.js += "/*! \n  " + _c.APPNAME +
-              " v" + src.info.version + " :: Built On " + new Date() + "\n\n" +
-              fs.readFileSync(_c.LICENSE, "utf-8") + "*/\n";
-
-    utils.collect(_c.LIB, lib);
-    utils.collect(_c.DEVICES, devicesCSS, matches(".css"));
-    utils.collect(_c.UI, overlays, matches("overlay.html"));
-    utils.collect(_c.UI, panels, matches("panel.html"));
-    utils.collect(_c.UI, dialogs, matches("dialog.html"));
-
-    utils.collect(_c.THIRDPARTY, thirdparty, function (path) {
-        return _c.thirdpartyIncludes.some(function (file) {
-            return matches(file)(path);
-        });
-    });
-
-    src.html = fs.readFileSync(_c.ASSETS + "client/index.html", "utf-8");
-
-    src.skins += compile(devicesCSS);
-    src.panels += compile(panels);
-    src.dialogs += compile(dialogs);
-    src.overlays += compile(overlays);
-
-    if (!opts.noclosure) {
-        src.js += "(function () {\n";
-    }
-
-    src.js += _c.thirdpartyIncludes.reduce(function (buffer, file) {
-        return buffer + fs.readFileSync(_c.THIRDPARTY + file, "utf-8");
-    }, "");
-
-    src.js += "window.ripple = ripple;\n";
-
-    src.js += compile(lib, function (file, path) {
-        return "ripple.define('" + path.replace(_path.resolve(_c.LIB) + slash, "").replace(/\.js$/, '').replace(/\\/g, "/") +
-               "', function (ripple, exports, module) {\n" + file + "});\n";
-    });
-
-    if (!opts.noclosure) {
-        src.js += "\n}());";
-    }
-
-    return src;
+    processOptions(options);
+    verifyTagName()
+        .then(checkPendingChanges)
+        .then(checkoutTag)
+        .then(runTests)
+        .then(runLint)
+        .then(runBuild)
+        .then(buildPackage)
+        .then(done)
+        .catch(handleError);
 };
+
+var currentTask;
+function handleError(error) {
+    var code = 1;
+
+    if (typeof error === "number") {
+        // This should only come from test, lint or build
+        code = error;
+        error = 'Error: Task \'' + currentTask + '\' failed.';
+    } else {
+        error = '' + (error.message || error);
+    }
+
+    console.log(error.red);
+    process.exit(code);
+}
+
+var warnings;
+function registerWarning(msg) {
+    warnings = warnings || [];
+    warnings.push(msg);
+}
+
+function outputStep(msg) {
+    console.log(msg.blue);
+}
+
+function runTests() {
+    return runTask(test, "Test", noTest);
+}
+
+function runLint() {
+    return runTask(lint, "Lint", noLint);
+}
+
+function runBuild() {
+    var args;
+    if (noCompress) {
+        registerWarning('Did not compress built files.');
+    } else {
+        args = [null, {compress: true}];
+    }
+    return runTask(build, "Build", noBuild, args);
+}
+
+function runTask(task, taskName, skip, args) {
+    if (skip) {
+        registerWarning('Didn\'t run task \'' + taskName + '\'');
+        return Q.when();
+    }
+    outputStep('Running task \'' + taskName + '\'...');
+    currentTask = taskName;
+    return task.promise.apply(task, args);
+}
+
+function done(result) {
+    if (result) {
+        console.log('Package created: ' + result);
+        if (warnings && warnings.length) {
+            console.log(('Warning: Use this package for testing only.\n  ' + warnings.join('\n  ')).yellow);
+        }
+        console.log();
+        process.exit(0);
+    }
+    process.exit(1);
+}
+
+function processOptions(options) {
+    options.forEach(function (option) {
+        var lowerCaseOption = option.toLowerCase();
+        switch (lowerCaseOption) {
+            case 'allow-pending':
+                allowPending = true;
+                break;
+
+            case 'no-test':
+                noTest = true;
+                break;
+
+            case 'no-lint':
+                noLint = true;
+                break;
+
+            case 'no-build':
+                noBuild = true;
+                break;
+
+            case 'no-compress':
+                noCompress = true;
+                break;
+
+            default:
+                if (tagName) {
+                    handleError("Error: Can't set tag name to '" + option + "' when it is already set to '" + tagName + "'.");
+                }
+                tagName = option;
+        }
+    });
+}
+
+function verifyTagName() {
+    if (tagName) {
+        return Q.when();
+    }
+
+    // Determine the most recent tag in the repository
+    outputStep('Looking for most recent tag...');
+    return exec('git tag --list').then(function (allTags) {
+        tagName = allTags.split(/\s+/).reduce(function (currentBest, value) {
+            var modifiedValue = value.replace(/^v/, '');
+            if (semver.valid(modifiedValue)) {
+                return !currentBest ? value : semver.gt(currentBest.replace(/^v/, ''), modifiedValue) ? currentBest : value;
+            }
+            if (currentBest) {
+                return currentBest;
+            }
+            return null;
+        });
+
+        console.log('- found: ' + tagName);
+    });
+}
+
+function checkoutTag() {
+    if (!tagName) {
+        throw "Error: Couldn't find the most recent tag name - please specify a tag or branch explicitly.";
+    }
+
+    if (tagName === 'current') {
+        registerWarning('The package was built from currently checked out files, which may not correctly reflect the package version.');
+        return Q.when();
+    }
+
+    outputStep('Checking out tag ' + tagName + '...');
+    return exec('git symbolic-ref -q --short HEAD || git describe --tags --exact-match').then(function (currentBranch) {
+        // Don't checkout the tag if its already checked out
+        if (currentBranch === tagName) {
+            console.log('- tag is already checked out.');
+        } else {
+            return exec('git checkout -q ' + tagName).then(function () {
+                console.log('- success.');
+            });
+        }
+    });
+}
+
+function checkPendingChanges() {
+    outputStep('Checking for pending local changes...');
+    return exec('git status --porcelain').then(function (result) {
+        if (result) {
+            if (allowPending) {
+                registerWarning('There are pending local changes.');
+            } else {
+                throw 'Error: Aborting because there are pending changes. Specify \'allow-pending\' option to ignore.';
+            }
+        }
+    });
+}
+
+function buildPackage() {
+    outputStep('Creating package...');
+    return exec('npm pack');
+}
+
+function exec(cmdLine) {
+    var d = Q.defer();
+
+    child_process.exec(cmdLine, function (err, stdout, stderr) {
+        err = err || stderr;
+
+        if (err || stderr) {
+            d.reject(err || stderr);
+        } else {
+            d.resolve((stdout || '').trim());
+        }
+    });
+
+    return d.promise;
+}
+
+function usage(includeIntro) {
+    if (includeIntro) {
+        console.log('');
+        console.log('Creates an npm package (tgz file) for a tag or branch.');
+    }
+
+    console.log('');
+    console.log('Usage:');
+    console.log('');
+    console.log('jake pack[allow-pending,no-test,no-lint,no-build,no-compress,<tagname>]');
+    console.log('');
+    console.log('  allow-pending: If specified, allow uncommitted changes to exist when\n' +
+        '                 packaging.');
+    console.log('  no-test:       If specified, don\'t run tests before packaging.');
+    console.log('  no-lint:       If specified, don\'t run lint before packaging');
+    console.log('  no-build:      If specified, don\'t run build before packaging (use currently\n' +
+        '                 built files).');
+    console.log('  no-compress:   If specified, don\'t compress (uglify) built files.');
+    console.log('  <tagname>:     If specified, an existing tag or branch to package. Otherwise\n' +
+        '                 defaults to the most recent tag. Specify \'current\' to use whatever\n' +
+        '                 is currently on your local machine (only use this for testing).');
+}
+

@@ -1,13 +1,185 @@
+<!--
+#
+# Licensed to the Apache Software Foundation (ASF) under one
+# or more contributor license agreements.  See the NOTICE file
+# distributed with this work for additional information
+# regarding copyright ownership.  The ASF licenses this file
+# to you under the Apache License, Version 2.0 (the
+# "License"); you may not use this file except in compliance
+# with the License.  You may obtain a copy of the License at
+#
+# http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing,
+# software distributed under the License is distributed on an
+# "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+#  KIND, either express or implied.  See the License for the
+# specific language governing permissions and limitations
+# under the License.
+#
+-->
+
+## v0.9.35 - March 11, 2016
+
+* README was missing from package
+
+## v0.9.34 - March 11, 2016
+
+* Don't display "I Haz Cheeseburger" dialog for status bar plugin: [4aec49f5](https://github.com/ripple-emulator/ripple/commit/4aec49f5)
+
+* Don't display "I Haz Cheeseburger" dialog for ionic keyboard plugin: [d304bf34](https://github.com/ripple-emulator/ripple/commit/d304bf34)
+
+* Better unhandled exec call response when no success or fail callback: [6cb5b65f](https://github.com/ripple-emulator/ripple/commit/6cb5b65f)
+
+## v0.9.33 - February 12, 2016
+
+Ripple has moved to it's own stand-alone github repo at <https://github.com/ripple-emulator/ripple>. Issues and requests should be reported at <https://github.com/ripple-emulator/ripple/issues>.
+
+* [Issue #9](https://github.com/ripple-emulator/ripple/issues/9): Added handling for `Media.MessageChannel` exec call: [2486d802](https://github.com/ripple-emulator/ripple/commit/2486d802)
+
+* [Issue #8](https://github.com/ripple-emulator/ripple/issues/8): Work around crash with Media plugin introduced by bug in Chrome 48: [d9e4866b](https://github.com/ripple-emulator/ripple/commit/d9e4866b)
+
+* [Issue #7](https://github.com/ripple-emulator/ripple/issues/7): Fix geolocation issues introduced by bug in in Chrome 48: [d9e4866b](https://github.com/ripple-emulator/ripple/commit/d9e4866b)
+
+* [Issue #6](https://github.com/ripple-emulator/ripple/issues/6): Added handling for `Geolocation.getPermission` exec call on Android: [70c2ff33](https://github.com/ripple-emulator/ripple/commit/70c2ff33)
+
+* Add support for Insomnia plugin ([cordova-plugin-insomnia](https://www.npmjs.com/package/cordova-plugin-insomnia)): [65c1034a](https://github.com/ripple-emulator/ripple/commit/65c1034a)
+
+* ScanditSDK fixes: [e2c2f848](https://github.com/ripple-emulator/ripple/commit/e2c2f848) and [6d8bfcff](https://github.com/ripple-emulator/ripple/commit/6d8bfcff)
+
+* [RIPPLE-99](https://issues.apache.org/jira/browse/RIPPLE-99) Updated emulation for Vibration API: [7578c471](https://github.com/ripple-emulator/ripple/commit/7578c471) 
+
+* [RIPPLE-100](https://issues.apache.org/jira/browse/RIPPLE-100) Fixed battery status event emulation: [7578c471](https://github.com/ripple-emulator/ripple/commit/7578c471)
+
+## v0.9.32 - August 16, 2015
+
+* [RIPPLE-87](https://issues.apache.org/jira/browse/RIPPLE-87) Ripple can't emulate multi-page applications:
+  <https://github.com/apache/incubator-ripple/pull/71>
+
+* [RIPPLE-95](https://issues.apache.org/jira/browse/RIPPLE-95) Emulate command validates options incorrectly (regression):
+  <https://github.com/apache/incubator-ripple/pull/70>
+
+* There's no such thing as Earl *Gray* Tea! <https://github.com/apache/incubator-ripple/pull/69>
+
+## v0.9.31 - July 23, 2015
+
+* [RIPPLE-88](https://issues.apache.org/jira/browse/RIPPLE-88) Error in Cordova app with device motion plugin when running under Ripple:
+  <https://github.com/apache/incubator-ripple/pull/62>
+
+* [RIPPLE-89](https://issues.apache.org/jira/browse/RIPPLE-89) Battery Status panel throws an exception if app does not include cordova.js:
+  <https://github.com/apache/incubator-ripple/pull/61>
+
+* [RIPPLE-85](https://issues.apache.org/jira/browse/RIPPLE-85) Button index is incremented twice in notifications:
+  <https://github.com/apache/incubator-ripple/pull/55>
+
+* [RIPPLE-83](https://issues.apache.org/jira/browse/RIPPLE-83) Move where we call Cordova `prepare` so we prepare for the correct platform:
+  <https://github.com/apache/incubator-ripple/pull/52>
+
+* [RIPPLE-91](https://issues.apache.org/jira/browse/RIPPLE-91) Fix gpx file implementation in Geolocation panel:
+  <https://github.com/apache/incubator-ripple/pull/63>
+
+* Improve layout and display of units in Accelerometer panel:
+  <https://github.com/apache/incubator-ripple/pull/66>
+
+* [RIPPLE-93](https://issues.apache.org/jira/browse/RIPPLE-93) Cordova `prepare` doesn't work if cwd isn't in Cordova project.
+  Also, validate command line options, and move where we get a reference to Cordova `prepare` to a later point (so it is after
+  we validate command line options):
+  <https://github.com/apache/incubator-ripple/pull/65>
+
+* [RIPPLE-94](https://issues.apache.org/jira/browse/RIPPLE-94) Fix issues with emulation of Console and Contacts plugins identified by running Mobile Spec: 
+  <https://github.com/apache/incubator-ripple/pull/68>
+
+## v0.9.30 - May 27, 2015
+
+* RIPPLE-86 Changes to allow Ripple to launch in Internet Explorer and Edge browsers:
+  <https://github.com/apache/incubator-ripple/pull/60>
+
+* Further cleanup in LICENSE file:
+  <https://github.com/apache/incubator-ripple/pull/57> and
+  <https://github.com/apache/incubator-ripple/pull/58>
+
+* README.md updates:
+  <https://github.com/apache/incubator-ripple/pull/54> and
+  <https://github.com/apache/incubator-ripple/pull/53>
+
+## v0.9.29 - May 12, 2015
+
+* RIPPLE-74 Ripple was not passing geolocation info to the app
+  <https://github.com/apache/incubator-ripple/pull/51>
+
+* Updated versions of jsdom and browserify so installs with Node 0.11.0 and above.
+  <https://github.com/apache/incubator-ripple/commit/1bb70121>
+
+* Updated minimum node version to 0.12.0 and minimum npm version to 2.5.1.
+  <https://github.com/apache/incubator-ripple/commit/b463abc5>
+
+* RIPPLE-80 Added 'jake archive' command to create Apache and npm archives/packages.
+  <https://github.com/apache/incubator-ripple/pull/45>
+
+* Added 'jake rat' command to run Apache RAT to verify license headers.
+  <https://github.com/apache/incubator-ripple/commit/7ba34149>
+
+## v0.9.28 - Mar 5, 2015
+
+* RIPPLE-78 Unexpected prompt for App.messageChannel with Cordova 4.3.0
+  <https://github.com/apache/incubator-ripple/pull/41>
+
+* RIPPLE-79 Cordova Android platform 'App' service renamed 'CoreAndroid'
+  <https://github.com/apache/incubator-ripple/pull/42>
+
+## v0.9.27 - Mar 4, 2015
+
+* The ASF comments are showing up in cli help logs.
+  <https://github.com/apache/incubator-ripple/pull/40>
+
+## v0.9.26 - Feb 17, 2015
+
+* RIPPLE-77: Need to include DISCLAIMER and NOTICE files in package
+  <https://github.com/apache/incubator-ripple/pull/39>
+
+## v0.9.25 - Feb 11, 2015
+
+* RIPPLE-76: Adding security warning for "Remote" proxy
+  <https://github.com/apache/incubator-ripple/pull/37>
+
+* RIPPLE 71: Adding BarcodeScanner plugin support
+  <https://github.com/apache/incubator-ripple/pull/34>
+
+* Fixed invalid call of db.save(...) if the default (local) proxy is set
+  <https://github.com/apache/incubator-ripple/pull/35>
+
+* Added missing cordova 3.0 action File.requestAllPaths and dummy nfc module
+  <https://github.com/apache/incubator-ripple/pull/31>
+
+
+## v0.9.24 - Sept 25, 2014
+
+* RIPPLE-69: Adding cordova-3.6.x support
+  <https://github.com/apache/incubator-ripple/pull/32>
+
+* Changed daylight saving label
+  <https://github.com/apache/incubator-ripple/pull/29>
+
+* Changing cursor when there is an ability of moving tool panels
+  <https://github.com/apache/incubator-ripple/pull/28>
+
+* Adding BatteryStatus support
+  <https://github.com/apache/incubator-ripple/pull/27>
+
+* Adding build requirements for windows to README.md
+  <https://github.com/apache/incubator-ripple/pull/26>
+
+
 ## v0.9.23 - Jun 26, 2014
 
 * RIPPLE-63 Ripple should default to local proxy, not remote
-  https://github.com/apache/incubator-ripple/pull/25
+  <https://github.com/apache/incubator-ripple/pull/25>
 
 * Fix RIPPLE-61: search for locally installed cordova module before expecting to find it globally installed
-  https://github.com/apache/incubator-ripple/pull/24
+  <https://github.com/apache/incubator-ripple/pull/24>
 
 * Fix RIPPLE-60 - proxy not detecting json properly
-  https://github.com/apache/incubator-ripple/pull/23
+  <https://github.com/apache/incubator-ripple/pull/23>
 
 ## v0.9.22 - Apr 24, 2014
 

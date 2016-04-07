@@ -334,7 +334,7 @@ section.left { left: 0; }
     right: 7px;
     top: 4px;
     opacity: 0.4;
-    cursor: pointer;
+    cursor: move;
 }
 
 .ui-sortable-highlight {
@@ -1241,6 +1241,80 @@ fieldset {
     -webkit-transition: background 0.5s;
     background-color: #66ccff;
 }
+
+
+/* START - RIPPLE-71 Barcode Scanner styles */
+.skan-dialog-field-set label {
+  float: left;
+  width: 25%;
+  margin-right: 0.5em;
+  padding-top: 0.2em;
+  text-align: right;
+  font-weight: bold;
+}
+
+.skan-dialog-field-set select {
+    width: 305px;
+}
+
+.skan-dialog-field-set input[type=text] {
+    width: 300px;
+}
+
+.barcode-overlay {
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    display: none;
+    background-color: white;
+}
+
+.barcode-close {
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+}
+
+.barcode-image {
+    z-index: 10000;
+    width: 100%;
+}
+
+.barcode-data {
+    z-index: 10000;
+    text-align: center;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 25px;
+    color: black;
+    padding: 20px;
+    background-color: white;
+}
+/* END - RIPPLE-71 Barcode Scanner styles */
+
+/* START - RIPPLE-76 Warning for "Remote" proxy */
+#remote-proxy-warn {
+    padding: 5px;
+    border: 2px solid gold;
+}
+
+#remote-proxy-warn-message {
+    margin: 20px 0 -15px 0;
+}
+
+.ui-warn-text-label {
+    font-weight: bold;
+    color: goldenrod;
+}
+
+.remote-proxy-warn-icon-container {
+    color:  goldenrod;
+    float: left;
+}
+.remote-proxy-warn-icon-name {
+    position: absolute;
+    margin: 1px 0 0 20px;
+}
+/* END - RIPPLE-76 Warning for "Remote" proxy */
 
 .error-logo-webratio {
     background: url("images/ripplelogo.png") no-repeat;
