@@ -34,14 +34,14 @@ echo.
 if "%1"=="release" (
     echo * packing for release
     echo.
-    call jake pack[no-test]
+    call jake pack[no-test] --trace
     echo.
     echo * WARNING the repository is no longer on branch master, switch it back before commiting again
     echo.
 ) else (
     echo * packing for debug
     echo.
-    call jake pack[allow-pending,no-test,current,no-compress]
+    call jake pack[allow-pending,no-test,current,no-compress] --trace
 )
 
 echo * done
