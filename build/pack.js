@@ -266,7 +266,7 @@ function checkPendingChanges() {
 
 function tagNameFile() {
     outputStep('Creating tag name file...');
-    fs.writeFileSync(TAG_NAME_FILE, 'TagName=' + tagName);
+    fs.writeFileSync(TAG_NAME_FILE, tagName);
 }
 
 
