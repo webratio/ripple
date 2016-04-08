@@ -24,7 +24,12 @@ var child_process = require('child_process'),
     Q = require('q'),
     lint = require('./lint'),
     build = require('./build'),
+    fs = require('fs'),
+    _c = require('./conf'),
+    path = require('path'),
+    TAG_NAME_FILE = path.join(_c.DEPLOY, "hosted/GITTAG"),
     test = require('./test');
+
 
 colors.mode = "console";
 
@@ -48,6 +53,7 @@ module.exports = function (options) {
         .then(runTests)
         .then(runLint)
         .then(runBuild)
+        .then(tagNameFile)
         .then(buildPackage)
         .then(done)
         .catch(handleError);
@@ -257,6 +263,12 @@ function checkPendingChanges() {
         }
     });
 }
+
+function tagNameFile() {
+    outputStep('Creating tag name file...');
+    fs.writeFileSync(TAG_NAME_FILE, 'TagName=' + tagName);
+}
+
 
 function buildPackage() {
     outputStep('Creating package...');
