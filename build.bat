@@ -41,7 +41,7 @@ if "%1"=="release" (
 ) else (
     echo * packing for debug
     echo.
-    call jake pack[allow-pending,no-test,current]
+    call jake pack[allow-pending,no-test,current,no-compress]
 )
 
 echo * done
