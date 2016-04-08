@@ -44,6 +44,7 @@ module.exports = {
         "draw.js",
         "../node_modules/jWorkflow/lib/jWorkflow.js",
         "OpenLayers.js",
+        "../node_modules/moment/moment.js",
         "../node_modules/moment/lang/bg.js",
         "../node_modules/moment/lang/ca.js",
         "../node_modules/moment/lang/cv.js",
