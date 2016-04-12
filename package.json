@@ -35,7 +35,7 @@
     "colors": "0.6.0-1",
     "connect-xcors": "0.5.2",
     "express": "3.1.0",
-    "moment": "1.x.x",
+    "moment": "2.x.x",
     "open": "0.0.3",
     "request": "2.12.0"
   },
