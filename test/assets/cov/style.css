@@ -41,7 +41,7 @@ h2, h3 {
 }
 
 span, pre {
-    font: Monospace;
+    font-family: monospace;
     font-size: 12px;
     background-color: #002B36;
     color: #999999;

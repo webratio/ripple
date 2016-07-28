@@ -205,7 +205,10 @@ section.right, section.left{
 
 .top {
     position: absolute;
-    margin: inherit auto inherit auto;
+    margin-top: inherit;
+    margin-right: auto;
+    margin-bottom: inherit;
+    margin-left: auto;
     top: 0;
 }
 
