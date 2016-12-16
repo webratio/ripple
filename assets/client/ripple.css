@@ -349,6 +349,11 @@ section.left { left: 0; }
 /* ------------------------------>
     overlay UI */
 
+
+#overlay-views {
+    display: inline;
+}
+
 .overlay {
     z-index: 10000;
     width: 100%;
@@ -1356,6 +1361,25 @@ fieldset {
 .logo {
     background-size: 100%;
     width: 240px;
+} 
+
+#splashscreen {
+	width: 100%; height: 100%;
+	background: black;
+}
+#splashscreen > p { 
+    width: 100%; height: 100%;
+	margin: 0;
+    background: url("images/ripplelogo_small.png") no-repeat center center;
+	animation-name: pulse;
+    animation-duration: 1.4s;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+@keyframes pulse { 
+    0% { transform: scale(0.9); } 
+    50% { transform: scale(1); } 
+    100% { transform: scale(0.9); } 
 } 
 
 .beta {
