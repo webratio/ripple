@@ -35,7 +35,11 @@ echo.
 if "%1"=="release" (
     echo * packing for release
     echo.
-    call jake pack[no-test] --trace
+    if "%2"=="allow-pending" (
+        call jake pack[allow-pending,no-test] --trace
+    ) else (
+        call jake pack[no-test] --trace
+    )
     echo.
     echo * WARNING the repository is no longer on branch master, switch it back before commiting again
     echo.
