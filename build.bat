@@ -4,8 +4,16 @@ echo.
 
 
 if not exist "bin/ripple" (
-   echo * ERROR: ripple not found. Check your current dir.
-   goto:EOF
+    echo * ERROR: ripple not found. Check your current dir.
+    goto :EOF
+)
+
+call npm ls -g windows-build-tools > nul
+if errorlevel 1 (
+    echo * ERROR: windows-build-tools package is not installed.
+	echo   Please run the following command with administrative privileges:
+	echo   npm install --global --production windows-build-tools
+	goto :EOF
 )
 
 if exist "pkg\hosted" (
@@ -23,7 +31,6 @@ if exist "ripple-emulator-*.tgz" (
 echo * npm installing
 echo.
 set Path=%Path%;.\node_modules\.bin
-call npm install --production windows-build-tools
 call npm install jake jshint csslint uglify-js
 call npm install
 

@@ -28,10 +28,10 @@ A browser based, platform agnostic mobile application development and testing to
 * Common
   * `nodejs` (`v0.12.0` or higher)
   * `npm` (`v2.5.1` or higher)
-  * `python` (`v2.7.3` recommended, `v3.x.x` is __not__ supported)
 
 * OSX / Linux
     * `make`
+    * `python` (`v2.7.3` recommended, `v3.x.x` is __not__ supported)
     * A C/C++ compiler toolchain, e.g. GCC
 
 * Windows
