@@ -31,7 +31,6 @@ if exist "ripple-emulator-*.tgz" (
 echo * npm installing
 echo.
 set Path=%Path%;.\node_modules\.bin
-call npm install jake jshint csslint uglify-js
 call npm install
 
 echo.
