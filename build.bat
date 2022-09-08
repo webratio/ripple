@@ -8,14 +8,6 @@ if not exist "bin/ripple" (
     goto :EOF
 )
 
-call npm ls -g windows-build-tools > nul
-if errorlevel 1 (
-    echo * ERROR: windows-build-tools package is not installed.
-	echo   Please run the following command with administrative privileges:
-	echo   npm install --global --production windows-build-tools
-	goto :EOF
-)
-
 if exist "pkg\hosted" (
     echo * removing target folder pkg/hosted
     echo.
