@@ -1,4 +1,5 @@
 @echo off
+setlocal
 echo * Building ripple...
 echo.
 
@@ -6,6 +7,24 @@ echo.
 if not exist "bin/ripple" (
     echo * ERROR: ripple not found. Check your current dir.
     goto :EOF
+)
+
+for /f "tokens=* usebackq" %%f in (`node -v`) do (
+    set node_version=%%f
+)
+node -e "process.exit(/^v6\..*/.test('%node_version%') ? 0 : 1)"
+if errorlevel 1 (
+	echo * ERROR: invalid Node version. Please use Node 6
+	goto :EOF
+)
+
+for /f "tokens=* usebackq" %%f in (`npm -v`) do (
+    set npm_version=%%f
+)
+node -e "process.exit(/^5\..*/.test('%npm_version%') ? 0 : 1)"
+if errorlevel 1 (
+	echo * ERROR: invalid npm version. Please use npm 5
+	goto :EOF
 )
 
 if exist "pkg\hosted" (
