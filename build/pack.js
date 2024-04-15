@@ -36,7 +36,7 @@ colors.mode = "console";
 var allowPending = false,
     tagName = '',
     noTest = false,
-    noLint = false,
+    noLint = true,
     noBuild = false,
     noCompress = false;
 

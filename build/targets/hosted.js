@@ -36,10 +36,12 @@ module.exports = function (src, baton) {
     if (os.platform() === 'win32') {
         copy = 'mkdir ' + toWinSep(PKG_BUILD_DIR) + " &&" +
                'xcopy /e /i ' + toWinSep(_c.ASSETS) + toWinSep("client/images ") + toWinSep(PKG_BUILD_DIR + "/images") + " &&" +
-               'xcopy /e /i ' + toWinSep(_c.ASSETS) + toWinSep("client/themes ") + toWinSep(PKG_BUILD_DIR + "/themes");
+               'xcopy /e /i ' + toWinSep(_c.ASSETS) + toWinSep("client/themes ") + toWinSep(PKG_BUILD_DIR + "/themes") + " &&" +
+               'xcopy /e /i ' + toWinSep(_c.ASSETS) + toWinSep("client/js ") + toWinSep(PKG_BUILD_DIR + "/js");
     } else {
         copy = 'mkdir ' + PKG_BUILD_DIR + " &&" +
                'cp -r ' + _c.ASSETS + "client/images " + PKG_BUILD_DIR + " &&" +
+               'cp -r ' + _c.ASSETS + "client/themes " + PKG_BUILD_DIR + " &&" +
                'cp -r ' + _c.ASSETS + "client/themes " + PKG_BUILD_DIR;
     }
 
